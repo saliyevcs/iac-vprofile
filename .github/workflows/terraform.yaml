@@ -13,12 +13,13 @@ on:
       - terraform/**
 
 env:
- ## Credentials for deployment to AWS
+ # Credentials for deployment to AWS
  AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
  AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+ 
  # S3 bucket for the Terraform state
  BUCKET_TF_STATE: ${{ secrets.BUCKET_TF_STATE}}
- AWS_REGION: us-east-2
+ AWS_REGION: us-east-1
  EKS_CLUSTER: vprofile-eks
 
 jobs:
@@ -32,12 +33,10 @@ jobs:
 
      steps:
        - name: Checkout source code 
-         uses: actions/checkout@v2
+         uses: actions/checkout@v4
 
        - name: Setup Terraform with specified version on the runner
          uses: hashicorp/setup-terraform@v2
-         #with:
-         #  terraform_version: 1.6.3
 
        - name: Terraform init
          id: init

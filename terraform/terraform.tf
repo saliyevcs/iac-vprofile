@@ -27,13 +27,11 @@ terraform {
   }
 
   backend "s3" {
-    bucket = "vprofilesa"
+    bucket = "vprofileactionssa"
     key    = "terraform.tfstate"
     region = "us-east-1"
   }
 
   required_version = "~> 1.7.0"
 }
-##
-##
-##
+
